@@ -1,5 +1,4 @@
 
-/*
 let pic = document.getElementById("image1");
 
 
@@ -11,9 +10,18 @@ brick.src = 'brick.png';
 let c = document.createElement("canvas");
 let img1 = new Image();
 
+img1.src = pic.src;
+
 const dim = (img,br) => [img.width/br.width , img.height/br.height];
 
+$('.up-btn').on('click', async (event) => {
 
+await fetch('/api/lego', {
+    method: 'GET'
+});
+
+
+})
 
 img1.onload = function () {
     pic.remove();
@@ -28,14 +36,19 @@ img1.onload = function () {
     let pixelArr = ctx.getImageData(0, 0, w, h).data;
     let sample_size = 30;
 
+    let backEndArray = [];
+
     for (let i = 0; i < h; i += sample_size) {
         for (let j = 0; j < w; j += sample_size) {
             let p = (j + (i * w)) * 4;
+            
+           
             ctx.fillStyle = "rgba(" + pixelArr[p] + "," + pixelArr[p + 1] + "," + pixelArr[p + 2] + "," + pixelArr[p + 3] + ")";
             ctx.fillRect(j, i, sample_size, sample_size);
         }
     }
 
+    console.log(backEndArray);
     let img2 = new Image();
     img2.src = c.toDataURL("image/jpeg");
     document.body.appendChild(img2);
@@ -43,16 +56,6 @@ img1.onload = function () {
 
 }
 
-img1.src = pic.src;
-*/
-
-
-
-
-const brick = new Image();
-brick.src = 'brick.png';
-
-document.getElementById("image1").remove();
 
 
 
