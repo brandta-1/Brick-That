@@ -1,37 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Brick That! - Upload a Photo</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<header>
-		<a href="/" class="logo">Brick That!</a>
-		<nav>
-			<ul>
-				<li><a href="/upload-photo.html">Upload a Photo</a></li>
-				<li><a href="#">Login</a></li>
-				<li><a href="#">Library</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section id="upload">
-			<div class="container">
-				<h1>Upload a Photo</h1>
-				<form>
-					<div class="form-group">
-						<label for="photo">Select a photo to upload:</label>
-						<input type="file" id="photo" name="photo" accept="image/jpeg, image/jpg, image/png">
-					</div>
-					<button>Upload</button>
-				</form>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<div class="container">
-			<p>&copy; 2023 Brick That! All Rights Reserved.</p>
-		</div>
-	</footer>
+<html>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="assets/style.css">
+    <body>
+        <header class="pg2">
+
+            <div class="main">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/Logo.png">
+                    </a>
+                </div>
+        
+                <!-- Navigation -->
+                
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="active"><a href="upload-photo.html">Upload a Photo</a></li>
+                    <li> <a href=>library</a></li>
+                    <li><a href=>Login</a></li>
+                </ul>
+                
+            </div>
+
+            <div class="title">
+                <h1>Upload a photo</h1>
+            </div>
+		</header>
+		<main>
+		  <section class="describe">
+			<h2 class ="info_title">Upload a photo</h2>
+			<form>
+			  <label for="photo">Select a photo:</label>
+			  <input type="file" id="photo" name="photo" accept="image/*">
+			  <button type="submit">Build Mosaic</button>
+			</form>
+		  </section>
+		</main>
+	  </body>
+	</html>
+
+        </header>
+      
+        <p class="copyright">
+            Copyright ©2023 All rights reserved
+        </p>
+</footer> 
+
+    </body>
+</html>
