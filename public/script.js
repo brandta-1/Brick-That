@@ -1,40 +1,12 @@
 const input = document.querySelector("input")
 const output = document.querySelector("output")
-let imagesArray = []
+let imagesArray = [];
 
+let c = document.getElementById("canvas_id");
 
-    $('.up-btn').on('click', async (event) => {
-
-        await fetch('/api/lego', {
-            method: 'GET'
-        });
-
-
-    })
-
-input.addEventListener("change", () => {
-    const file = input.files
-    imagesArray.push(file[0])
-    displayImages()
-})
-
-function displayImages() {
- 
-    output.innerHTML = `<div class="image"> <img src="${URL.createObjectURL(input.files[0])}" alt="image" id="image1"> </div `
-    const brick = new Image();
-    brick.src = 'brick.png';
-
-    //brick is 30x30 px
-
-    let c = document.createElement("canvas");
+async function loadImages(arg) {
     let img1 = new Image();
-
-    img1.src = URL.createObjectURL(input.files[0]);
-
-
-    //dimensions of an image in the brick picture
-    const dim = (img, br) => [img.width / br.width, img.height / br.height];
-
+    img1.src = arg;
 
     img1.onload = function () {
         w = img1.width;
@@ -42,124 +14,82 @@ function displayImages() {
 
         c.width = w;
         c.height = h;
-        ctx = c.getContext("2d");
+        ctx = c.getContext("2d", { willReadFrequently: true });
+        ctx.drawImage(img1, 0, 0);
+    }
+}
+
+async function displayImages() {
+
+    const brick = new Image();
+    brick.src = 'brick.png';
+
+    //promised based way of just saying brick onload
+    await brick.decode();
+
+    //brick is 30x30 px
+
+    let img1 = new Image();
+
+    img1.src = URL.createObjectURL(input.files[0]);
+
+    //TODO implement lazy nearest neighbor or do a difficult proper algo with edge detection (not happening)
+
+    img1.onload = function () {
+        w = img1.width;
+        h = img1.height;
+
+        c.width = w;
+        c.height = h;
+        ctx = c.getContext("2d", { willReadFrequently: true });
         ctx.drawImage(img1, 0, 0);
 
-        let pixelArr = ctx.getImageData(0, 0, w, h).data;
-        let sample_size = 30;
+        let pixelArr;
+        pixelArr = ctx.getImageData(0, 0, w, h).data;
 
-        let backEndArray = [];
+        let br = 30;
+
+        for (let i = 0; i < w; i += br) {
+            for (let j = 0; j < h; j += br) {
+
+                let p = (i + (j * w)) * 4;
+
+                ctx.drawImage(brick, 0, 0, br, br, i, j, br, br)
 
 
-
-        for (let i = 0; i < h; i += sample_size) {
-            for (let j = 0; j < w; j += sample_size) {
-                let p = (j + (i * w)) * 4;
-
-                // backEndArray.push(pixelArr.slice(p,p+3));
-                backEndArray.push(
-                    pixelArr[p],
-                    pixelArr[p + 1],
-                    pixelArr[p + 2]
-                );
-
-                const currRGBA = "rgba(" + pixelArr[p] + "," + pixelArr[p + 1] + "," + pixelArr[p + 2] + ",255)"
-                console.log(currRGBA);
+                const currRGBA = "rgba(" + pixelArr[p] + "," + pixelArr[p + 1] + "," + pixelArr[p + 2] + ", .75)"
                 ctx.fillStyle = currRGBA;
-                ctx.fillRect(j, i, sample_size, sample_size);
+                ctx.fillRect(i, j, br, br);
             }
         }
-
-        console.log(backEndArray);
-
-        let img2 = new Image();
-        img2.src = c.toDataURL("image/jpeg");
-        document.body.appendChild(img2);
-        document.body.appendChild(brick);
-
     }
-
 }
 
+$('.save-btn').on('click', async (event) => {
 
+    const theCanvas = document.getElementById("canvas_id")
 
-/*
+    if (theCanvas.width * theCanvas.height <= Math.pow(2048, 2)) {
 
-let pic = document.getElementById("image1");
+        const legoImage = theCanvas.toDataURL()
 
-
-const brick = new Image();
-brick.src = 'brick.png';
-
-//brick is 30x30 px
-
-let c = document.createElement("canvas");
-let img1 = new Image();
-
-img1.src = pic.src;
-
-const dim = (img,br) => [img.width/br.width , img.height/br.height];
-
-$('.up-btn').on('click', async (event) => {
-
-await fetch('/api/lego', {
-    method: 'GET'
-});
-
-
+        await fetch('/api/lego', {
+            method: 'POST',
+            body: JSON.stringify({ legoImage }),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+    } else {
+        alert("Images can only be saved if they are 2048x2048 or smaller")
+    }
 })
 
-img1.onload = function () {
-    pic.remove();
-    w = img1.width;
-    h = img1.height;
+$('.get-btn').on('click', async () => {
 
-    c.width = w;
-    c.height = h;
-    ctx = c.getContext("2d");
-    ctx.drawImage(img1, 0, 0);
+    let response = await fetch('/api/lego/saved')
+    let data = await response.json();
+    loadImages(data.legoImage)
+})
 
-    let pixelArr = ctx.getImageData(0, 0, w, h).data;
-    let sample_size = 30;
-
-    let backEndArray = [];
-
-  
-
-    for (let i = 0; i < h; i += sample_size) {
-        for (let j = 0; j < w; j += sample_size) {
-            let p = (j + (i * w)) * 4;
-
-           // backEndArray.push(pixelArr.slice(p,p+3));
-            backEndArray.push(
-                pixelArr[p],
-                pixelArr[p+1],
-                pixelArr[p+2]
-            );
-
-            const currRGBA ="rgba(" + pixelArr[p] + "," + pixelArr[p + 1] + "," + pixelArr[p + 2] + ",255)"
-            console.log(currRGBA);
-            ctx.fillStyle = currRGBA;
-            ctx.fillRect(j, i, sample_size, sample_size);
-        }
-    }
-
-    console.log(backEndArray);
-
-    let img2 = new Image();
-    img2.src = c.toDataURL("image/jpeg");
-    document.body.appendChild(img2);
-    document.body.appendChild(brick);
-
-}
-
-
-
-
-document.body.appendChild(brick);
-
-*/
-
-
-
-
+input.addEventListener("change", displayImages)
