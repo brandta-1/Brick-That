@@ -95,7 +95,12 @@ $('.get-btn').on('click', async () => {
 
     let response = await fetch('/api/lego/saved')
     let data = await response.json();
+    console.log(data);
     loadImages(data)
 })
+
+//write a fetch that fetches the lego URLs based on the id's, id's are retrieved just using the dom api
+
+console.log(document.getElementsByClassName("lib_canvas"));
 
 input.addEventListener("change", displayImages)

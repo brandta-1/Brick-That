@@ -43,7 +43,8 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 app.use(express.static('public'));
 
 //homepage route is just /
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
+//old homepage pre-templating
+//app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
 
 app.use(routes);
 
