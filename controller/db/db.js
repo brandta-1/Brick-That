@@ -70,10 +70,40 @@ function internalRead(user) {
     })
 }
 
-function internalUpdate(user) {
+// Check everything below //
 
+function internalUpdate(user) {
+    // do error checking on the user object before pasing into the DB function
+    pool.query(commands.update({
+        username: user.name,
+        passwordHash: user.passwordHash
+    }), 
+    (error, results, fields) => {
+        if(error) {
+            console.log(error)
+            _callback(false)
+            return
+        }
+
+        // check the results before sending true etc for the password hash to match etc
+        _callback(true)
+    })
 }
 
 function internalDelete(user) {
+    // do error checking on the user object before pasing into the DB function
+    pool.query(commands.delete({
+        username: user.name,
+        passwordHash: user.passwordHash
+    }), 
+    (error, results, fields) => {
+        if(error) {
+            console.log(error)
+            _callback(false)
+            return
+        }
 
+        // check the results before sending true etc for the password hash to match etc
+        _callback(true)
+    })
 }

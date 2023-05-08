@@ -44,8 +44,10 @@ router.get("/api/:user", async (req, res) => {
         res.status(404).send()
     }
 })
+
+//check routes below with jeff
 // update
-router.put("/api/:user", async (req, res) => {
+router.put("/api/:update", async (req, res) => {
     var user = req.params.user
     if(user == undefined || user == null) {
         res.status(403).send()
