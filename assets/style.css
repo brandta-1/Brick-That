@@ -6,7 +6,7 @@
 /* Header/Navigation  */
 
 header.pg1 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(pictures/vadim-bogulov-cZveUvrezvY-unsplash.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/vadim-bogulov-cZveUvrezvY-unsplash.jpg);
     height: 100vh;
     background-size: cover;
     background-position:center;
@@ -14,7 +14,7 @@ header.pg1 {
 }
 
 header.pg2 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(pictures/iker-urteaga-TL5Vy1IM-uA-unsplash.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/iker-urteaga-TL5Vy1IM-uA-unsplash.jpg);
     height: 100vh;
     background-size: cover;
     background-position:center;
@@ -22,7 +22,7 @@ header.pg2 {
 }
 
 header.pg3 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url();
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/elodie-oudot-TaEd6ndkRWM-unsplash.jpg);
     height: 100vh;
     background-size: cover;
     background-position:center;
@@ -30,7 +30,7 @@ header.pg3 {
 }
 
 header.pg4 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url();
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/elodie-oudot-TaEd6ndkRWM-unsplash.jpg);
     height: 100vh;
     background-size: cover;
     background-position:center;
