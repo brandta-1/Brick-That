@@ -10,11 +10,11 @@ module.exports = {
     },
 
     update: (params) => {
-
+        return library("UPDATE_EXMPLE").replace('~1', mysql.escape(params.username))
     },
 
     delete: (params) => {
-
+        return library("DELETE_EXAMPLE").replace('~1', mysql.escape(params.username))
     },
 }
 

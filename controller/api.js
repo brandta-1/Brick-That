@@ -45,13 +45,39 @@ router.get("/api/:user", async (req, res) => {
     }
 })
 // update
+router.put("/api/:user", async (req, res) => {
+    var user = req.params.user
+    if(user == undefined || user == null) {
+        res.status(403).send()
+        return 
+    }
+
+    var result = await db.update(user)
+    if(result.length > 0) {
+        res.status(200).send(result)
+    } else {
+        res.status(404).send()
+    }
+})
 //?
 
 // delete
-router.post("/api/delete", async (req, res) => {
+router.delete("/api/delete", async (req, res) => {
     // Todo check for the body data
     // TODO: feed the body data into the db
     // respond
+    var user = req.params.user
+    if(user == undefined || user == null) {
+        res.status(403).send()
+        return 
+    }
+
+    var result = await db.delete(user)
+    if(result.length > 0) {
+        res.status(200).send(result)
+    } else {
+        res.status(404).send()
+    }
 })
 
 module.exports = router;
