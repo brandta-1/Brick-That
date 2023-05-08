@@ -4,6 +4,8 @@ let imagesArray = [];
 
 let c = document.getElementById("canvas_id");
 
+console.log(c.width);
+
 async function loadImages(arg) {
     let img1 = new Image();
     img1.src = arg;
@@ -63,6 +65,8 @@ async function displayImages() {
             }
         }
     }
+    
+    $('.save-btn').attr('disabled', false)
 }
 
 $('.save-btn').on('click', async (event) => {
@@ -71,15 +75,17 @@ $('.save-btn').on('click', async (event) => {
 
     if (theCanvas.width * theCanvas.height <= Math.pow(2048, 2)) {
 
-        const legoImage = theCanvas.toDataURL()
+        const lego_url = theCanvas.toDataURL()
 
         await fetch('/api/lego', {
             method: 'POST',
-            body: JSON.stringify({ legoImage }),
+            body: JSON.stringify({ lego_url }),
             headers: {
                 'Content-Type': 'application/json',
             }
         })
+
+        $('.save-btn').attr('disabled', true)
     } else {
         alert("Images can only be saved if they are 2048x2048 or smaller")
     }
@@ -89,7 +95,7 @@ $('.get-btn').on('click', async () => {
 
     let response = await fetch('/api/lego/saved')
     let data = await response.json();
-    loadImages(data.legoImage)
+    loadImages(data)
 })
 
 input.addEventListener("change", displayImages)

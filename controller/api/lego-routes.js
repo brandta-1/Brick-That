@@ -1,39 +1,40 @@
 const router = require('express').Router();
-const { example } = require('../../pretend_db')
-const fs = require('fs');
+const { Model } = require('sequelize');
+const { User, Lego } = require('../../Model');
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     try {
 
-        let data = req.body;
-
-        //TODO: this writefile will be replaced by sequelize and a real db
-
-        fs.writeFile("./pretend_db/example.json", JSON.stringify(data),
-            {
-                encoding: "utf8",
-                flag: "w",
-                mode: 0o666
-            },
-            (err) => {
-                if (err)
-                    console.log(err);
-                else {
-                    console.log("File written\n");
-                    console.log(fs.readFileSync("./pretend_db/example.json", "utf8"));
-                }
-            });
+        //TODO change to session id
+        const newLego = await Lego.create({
+            ...req.body,
+            user_id: 1
+        });
 
         res.status(200).json("success")
+
     } catch (err) {
         res.status(400).json(err)
     }
 })
 
-router.get('/saved', (req, res) => {
+router.get('/saved', async (req, res) => {
     try {
 
-        return res.json(example)
+
+        //TODO: change to session id
+        const legoData = await Lego.findByPk(2, {
+
+            raw: true,
+            attributes: ['lego_url'],
+            include: [
+                {
+                    model: User, as: "user"
+                }
+            ]
+        });
+
+        res.json(legoData.lego_url)
 
     } catch (err) {
         res.status(400).json(err)
