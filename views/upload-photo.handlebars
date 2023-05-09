@@ -9,12 +9,7 @@
 
         <!-- Navigation -->
 
-        <ul>
-            <li><a href="/">HOME</a></li>
-            <li class="active"><a href="/upload">UPLOAD</a></li>
-            <li> <a href="/library">LIBRARY</a></li>
-            <li><a href="/Login">LOGIN</a></li>
-        </ul>
+        {{> nav-partial item="upload"}}
 
     </div>
 
@@ -26,7 +21,7 @@
     <section class="describe">
         <h2 class="info_title">Upload a photo</h2>
         <button class="save-btn" id="1" disabled="true">SAVE</button>
-        <input type="file" accept="image/jpeg, image/png, image/jpg">
+        <input id="image_input" type="file" accept="image/jpeg, image/png, image/jpg">
 
         <canvas id="canvas_id"></canvas>
 

@@ -1,10 +1,8 @@
-const input = document.querySelector("input")
+const input = document.getElementById("image_input")
 const output = document.querySelector("output")
 let imagesArray = [];
 
 let c = document.getElementById("canvas_id");
-
-console.log(c.width);
 
 async function loadImages(arg) {
     let img1 = new Image();
@@ -100,7 +98,6 @@ $('.get-btn').on('click', async () => {
 })
 
 //write a fetch that fetches the lego URLs based on the id's, id's are retrieved just using the dom api
-
-console.log(document.getElementsByClassName("lib_canvas"));
-
-input.addEventListener("change", displayImages)
+if(input){
+    input.addEventListener("change", displayImages)
+}

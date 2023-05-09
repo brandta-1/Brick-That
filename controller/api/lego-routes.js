@@ -1,14 +1,13 @@
 const router = require('express').Router();
 const { Model } = require('sequelize');
-const { User, Lego } = require('../../Model');
+const { User, Lego } = require('../../model');
 
 router.post('/', async (req, res) => {
     try {
-
-        //TODO change to session id
-        const newLego = await Lego.create({
+        
+        await Lego.create({
             ...req.body,
-            user_id: 1
+            user_id: req.session.user_id
         });
 
         res.status(200).json("success")
@@ -21,9 +20,7 @@ router.post('/', async (req, res) => {
 router.get('/saved', async (req, res) => {
     try {
 
-
-        //TODO: change to session id
-        const legoData = await Lego.findByPk(2, {
+        const legoData = await Lego.findByPk(req.session.user_id, {
 
             raw: true,
             attributes: ['lego_url'],

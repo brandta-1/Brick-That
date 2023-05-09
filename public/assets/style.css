@@ -47,7 +47,7 @@ ul li {
     display: inline-block;
 }
 
-ul li a {
+ul li a, .no-button {
     text-decoration: none;
     color: #fff;
     padding: 5px 20px;
@@ -55,12 +55,12 @@ ul li a {
     transition: 0.6s ease;
 }
 
-ul li a:hover {
+ul li a:hover, .no-button {
     background-color: #fff;
     color: #000;
 }
 
-ul li.active a{
+ul li.active a, .no-button{
     background-color: #fff;
     color: #000;
 }

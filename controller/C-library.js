@@ -1,11 +1,11 @@
 const router = require('express').Router();
-
+const withAuth = require('../utils/auth');
 const { User, Lego } = require('../model');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
 
-        const userData = await User.findByPk(1, {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [
                 {
@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
         console.log(user);
 
         res.render('library', {
-            ...user, helpers: {
+            ...user, logged_in: req.session.logged_in, helpers: {
                 renderLegos(x) { return `<img alt="not working" src=${JSON.stringify(x)}/>`; }
             }
         })

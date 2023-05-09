@@ -1,0 +1,18 @@
+<ul>
+    <li><a id="home" href="/">HOME</a></li>
+    <li><a id="upload" href="/upload">UPLOAD</a></li>
+    <li><a id="library" href="/library">LIBRARY</a></li>
+    {{#if logged_in}}
+    <button class="no-button" id="logout">logout</button>
+    {{else}}
+    <li><a id="login" href="/Login">LOGIN</a></li>
+    {{/if}}
+</ul>
+
+<style>
+    #{{item}}
+        {
+        background-color: #fff;
+        color: #000;
+    }
+</style>
