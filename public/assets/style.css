@@ -1,367 +1,209 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Century Gothic;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
 }
+
 /* Header/Navigation  */
 
-header.pg1 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/legoArtwork.png);
-    height: 100vh;
-    background-size: cover;
-    background-position-y:15%;
-    background-color: rgb(59, 60, 61);
-}
-
-header.pg2 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/iker-urteaga-TL5Vy1IM-uA-unsplash.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position:center;
-    background-color: rgb(59, 60, 61);
-}
-
-header.pg3 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/elodie-oudot-TaEd6ndkRWM-unsplash.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position:center;
-    background-color: rgb(59, 60, 61);
-}
-
-header.pg4 {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/elodie-oudot-TaEd6ndkRWM-unsplash.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position:center;
-    background-color: rgb(59, 60, 61);
-}
-
 ul {
-    float: right;
-    list-style-type: none;
-    margin-top: 25px;  
+  float: right;
+  list-style-type: none;
+  margin-top: 25px;
 }
 
 ul li {
-    display: inline-block;
+  display: inline-block;
 }
 
 ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 20px;
-    border: 1px solid transparent;
-    transition: 0.6s ease;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 20px;
+  border: 1px solid transparent;
+  transition: 0.6s ease;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  font-size: 100%;
 }
 
 ul li a:hover {
-    background-color: #fff;
-    color: #000;
+  background-color: #fff;
+  color: #000;
 }
 
-ul li.active a{
-    background-color: #fff;
-    color: #000;
-}
-
-.logo img {
-    float: left;
-    width: 150px;
-    height: 100px;
+ul li.active a {
+  background-color: #fff;
+  color: #000;
 }
 
 .main {
-    max-width: 1200px;
-    margin: auto;
+  max-width: 1200px;
+  margin: auto;
+}
+
+#the-library{
+  background-color: rgb(31, 31, 31);
 }
 
 .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate (-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate (-50%, -50%);
+}
+
+canvas {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100%;
+ 
 }
 
 .title h1 {
-    color: #fff;
-    font-size: 70px;
+  color: #fff;
+  font-size: 70px;
 }
 
+.upload-input {
+  text-align: center;
+  color: rgb(168, 168, 168);
 
-/* Main description pg1 */
-.info {   
-    float: left;
-    background-color: rgb(38, 39, 39);
-    padding: 50px;
-    
-}
-
-.info_title {
-    text-align: center;
-    color: #fff;
-    padding-bottom: 20px;
-    font-size: 40px;
-    letter-spacing: 3px;  
-    position: relative;
-}
-
-.info_title::after {
-    content:'';
-    height: 2px;
-    width: 20%;
-    background-color: rgb(253, 0, 156);
-    position:absolute;
-    left:calc(50% - 10%);
-    bottom:0;
 }
 
 .describe {
-    padding: 100px;
-    text-align: center;
-    color: rgb(168, 168, 168);
-    background-color: rgb(27, 27, 27);
+  text-align: center;
+  color: rgb(168, 168, 168);
+  background: black;
 }
 
-/* Museums pg2 */
-
-.museum {   
-    float: left;
-    background-color: rgb(38, 39, 39);
-    padding: 50px;   
+.gallery {
+  display: flex;
+  justify-content: center;
 }
 
-.entertainment {   
-    float: left;
-    background-color: rgb(27, 27, 27);
-    padding: 50px;   
+.gallery img {
+
+  max-width: 100%;
+  margin-top: 50px;
 }
-
-.museum_info {
-    text-align: center;
-    color: #fff;
-    padding-bottom: 20px;
-    font-size: 40px;
-    letter-spacing: 3px;  
-    position: relative;
-}
-
-.museum_info::after {
-    content:'';
-    height: 2px;
-    width: 20%;
-    background-color: rgb(253, 0, 156);
-    position:absolute;
-    left:calc(50% - 10%);
-    bottom:0;
-}
-
-.museums_pic {
-    float: left;
-    background-color: rgb(38, 39, 39);
-    padding: 20px 6px; 
-    width: 33.333%;
-}
-
-.entertainment_pic {
-    float: left;
-    background-color: rgb(27, 27, 27);
-    padding: 20px 6px; 
-    width: 33.333%;
-}
-
-.textWithBlurredBg {
-    height:auto;
-    display:inline-block;
-    position:relative;
-    transition:.3s;
-    /* margin:4px; */
-  }
-  
-  .textWithBlurredBg img {
-    width:100%;
-    height:100%;
-    transition:.3s;
-    border-radius:4px;
-  }
-
-.textWithBlurredBg:hover img {
-    filter: blur(1px) brightness(60%);
-    /* box-shadow:0 0 16px cyan; */
-}
-
-.textWithBlurredBg :not(img) {
-    position: absolute;
-    z-index:1;
-    top: 30%;
-    width: 100%;
-    text-align: center;
-    font-size: 140%;
-    color: #fff;
-    opacity: 0;
-    transition: .3s;
-}
-
-.textWithBlurredbg h3 {
-    top: 50%;
-}
-
-.textWithBlurredBg:hover :not(img) {
-    opacity:1;
-  }
-
-div.gallery {
-    border: 1px solid rgb(253, 0, 156);
-}
-
-div.gallery img {
-    width: 100%;
-    height: 300px;
-}
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-    color: rgb(168, 168, 168);
-}
-
-* {
-    box-sizing:border-box;
-}
-
-@media only screen and (max-width: 700px) {
-    .museums_pic {
-      width: 49.99999%;
-      margin: 6px 0;
-    }
-  }
-  
-  @media only screen and (max-width: 500px) {
-    .museums_pic {
-      width: 100%;
-    }
-  }
-  
-  .clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-/* Form */
 
 /* Style inputs, select elements and textareas */
-input[type=text], select, textarea{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: vertical;
-    background-color: rgb(56, 58, 58);
-  }
-  
-  input[type=email], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    background-color: rgb(56, 58, 58);
-  }
-  
-  input[type=tele], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    background-color: rgb(56, 58, 58);
-  }
-
-  /* Style the label to display next to the inputs */
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-    color: rgb(168, 168, 168);
-  }
-  
-  /* Style the submit button */
-  input[type=submit] {
-    background-color: rgb(253, 0, 156);
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-  }
-  
-  /* Style the container */
-  .container {
-    border-radius: 5px;
-    background-color: rgb(38, 39, 39);
-    padding: 20px;
-  }
-  
-  /* Floating column for labels: 25% width */
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-  }
-  
-  /* Floating column for inputs: 75% width */
-  .col-75 {
-    float: left;
-    width: 75%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-
-/* Footer */
-
-footer {
-    background-color: rgb(27, 27, 27);
-    padding: 50px;
-    text-align: center;
+input[type=text],
+input[type=password],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  background-color: rgb(56, 58, 58);
 }
 
-.footer_title {
-    text-align: center;
-    color: #fff;
-    padding-bottom: 20px;
-    font-size: 40px;
-    letter-spacing: 3px;
-    position: relative; 
+input[type=email],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: rgb(56, 58, 58);
 }
 
-.footer_title::after {
-    content:'';
-    height: 2px;
-    width: 20%;
-    background-color: rgb(253, 0, 156);
-    position:absolute;
-    left:calc(50% - 10%);
-    bottom:0;
+input[type=tele],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  background-color: rgb(56, 58, 58);
 }
 
-.copyright {
-    text-align: center;
-    color: rgb(168, 168, 168); 
-    padding-top: 10px;
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(168, 168, 168);
+}
+
+@media screen and (max-width: 1280px) {
+  .title{
+    position: static;
+  }
+
+  header{
+    height: auto;
+  }
+
+  .upload-input {
+    text-align: left;
+  }
+
+  canvas {
+    max-height: 90%;
+    max-width: 90%;
+  }
+}
+
+.form-group {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+  color: #aaa;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3E8E41;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+}
+
+.row {
+  position: absolute;
+  width: 50%;
+  top: 20%;
+  left: 25%
+  
 }

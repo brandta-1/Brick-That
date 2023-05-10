@@ -1,7 +1,6 @@
 const express = require('express');
 const session = require('express-session');
 const exprhb = require('express-handlebars');
-const path = require('path');
 const routes = require('./controller');
 const bodyParser = require('body-parser')
 
@@ -37,14 +36,7 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }))
 
-
-
-//serving static assets in our public folder
 app.use(express.static('public'));
-
-//homepage route is just /
-//old homepage pre-templating
-//app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/index.html')));
 
 app.use(routes);
 
