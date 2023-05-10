@@ -4,7 +4,6 @@ const home = require('./C-home');
 const lib = require('./C-library');
 const upload = require('./C-upload');
 
-
 router.use('/api', api);
 router.use('/',home);
 router.use('/library',lib);

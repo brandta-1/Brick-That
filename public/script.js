@@ -1,13 +1,12 @@
 const input = document.getElementById("image_input")
-const output = document.querySelector("output")
 let imagesArray = [];
-
 let c = document.getElementById("canvas_id");
 
 async function loadImages(arg) {
     let img1 = new Image();
     img1.src = arg;
 
+    //function argument will be a URL, draws image given URL to the canvas
     img1.onload = function () {
         w = img1.width;
         h = img1.height;
@@ -33,7 +32,7 @@ async function displayImages() {
 
     img1.src = URL.createObjectURL(input.files[0]);
 
-    //TODO implement lazy nearest neighbor or do a difficult proper algo with edge detection (not happening)
+    //TODO implement lazy nearest neighbor or do a difficult proper algo with edge detection
 
     img1.onload = function () {
         w = img1.width;
@@ -56,14 +55,12 @@ async function displayImages() {
 
                 ctx.drawImage(brick, 0, 0, br, br, i, j, br, br)
 
-
                 const currRGBA = "rgba(" + pixelArr[p] + "," + pixelArr[p + 1] + "," + pixelArr[p + 2] + ", .75)"
                 ctx.fillStyle = currRGBA;
                 ctx.fillRect(i, j, br, br);
             }
         }
     }
-    
     $('.save-btn').attr('disabled', false)
 }
 
@@ -71,6 +68,7 @@ $('.save-btn').on('click', async (event) => {
 
     const theCanvas = document.getElementById("canvas_id")
 
+    // 2048*2048 resolution limit
     if (theCanvas.width * theCanvas.height <= Math.pow(2048, 2)) {
 
         const lego_url = theCanvas.toDataURL()
@@ -97,7 +95,6 @@ $('.get-btn').on('click', async () => {
     loadImages(data)
 })
 
-//write a fetch that fetches the lego URLs based on the id's, id's are retrieved just using the dom api
-if(input){
+if (input) {
     input.addEventListener("change", displayImages)
 }

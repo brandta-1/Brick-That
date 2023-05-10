@@ -16,11 +16,10 @@ router.get('/', withAuth, async (req, res) => {
 
         let user = { ...userData.get({ plain: true }) };
 
-        console.log(user);
-
+        //helper function for this render only, accesses URL from database and returns HTML
         res.render('library', {
             ...user, logged_in: req.session.logged_in, helpers: {
-                renderLegos(x) { return `<img alt="not working" src=${JSON.stringify(x)}/>`; }
+                renderLegos(x) { return `<img class="gallery" alt="not working" src=${JSON.stringify(x)}/>`; }
             }
         })
 

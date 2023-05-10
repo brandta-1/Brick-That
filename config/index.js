@@ -4,6 +4,7 @@ require('dotenv').config();
 let sequelize;
 
 //JAWSDB is what heroku will use when the app is deployed
+//add JAWSDB to the heroku deployment via resources tab
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {

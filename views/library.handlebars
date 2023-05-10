@@ -1,20 +1,12 @@
-<body>
-    <header class="pg3">
+<body id="the-library">
+    <header>
 
         <div class="main">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/Brick that lib.jpg">
-                </a>
-            </div>
-
-            <!-- Navigation -->
-
             {{> nav-partial item="library"}}
         </div>
 
         <div class="title">
-            <h1>Library {{name}}</h1>
+            <h1>{{name}}'s Library</h1>
         </div>
 
     </header>
@@ -26,3 +18,6 @@
     {{/if}}
 
 </body>
+
+{{>css-partial item="header" image= "/assets/images/gustavKlimt.png"}}
+

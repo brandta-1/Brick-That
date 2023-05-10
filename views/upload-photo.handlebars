@@ -1,32 +1,20 @@
-<header class="pg2">
+<header>
 
     <div class="main">
-        <div class="logo">
-            <a href="index.html">
-                <img src="assets/images/Brick that blue.jpg">
-            </a>
-        </div>
-
-        <!-- Navigation -->
-
         {{> nav-partial item="upload"}}
-
     </div>
 
     <div class="title">
         <h1>Upload a photo</h1>
+        <div class="upload-input">
+            <button class="save-btn" id="1" disabled="true">SAVE</button>
+            <input class="no-button" id="image_input" type="file" accept="image/jpeg, image/png, image/jpg">
+
+        </div>
     </div>
+
+    <canvas id="canvas_id"></canvas>
+
 </header>
-<main>
-    <section class="describe">
-        <h2 class="info_title">Upload a photo</h2>
-        <button class="save-btn" id="1" disabled="true">SAVE</button>
-        <input id="image_input" type="file" accept="image/jpeg, image/png, image/jpg">
 
-        <canvas id="canvas_id"></canvas>
-
-        <output></output>
-
-        <button class="get-btn" id="1">GET</button>
-    </section>
-</main>
+{{>css-partial item="html" image= "/assets/images/divisionBell.png"}}
