@@ -3,6 +3,7 @@ const sequelize = require('../config');
 
 class Lego extends Model { }
 
+
 Lego.init(
     {
         id: {

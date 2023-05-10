@@ -1,5 +1,5 @@
 const User = require('./User');
-const Lego = require('./Lego');
+const Lego = require('./lego');
 
 User.hasMany(Lego, {
     foreignKey: 'user_id',
