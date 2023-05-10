@@ -16,4 +16,7 @@ The server is now running locally at http://localhost:3001
 ## Deployment
 The site is deployed on Heroku: https://brick-that.herokuapp.com/
 
+## Preview
+![image](https://github.com/brandta-1/Brick-That/assets/116298512/40faa466-8275-4a77-b16e-7bacad8c777a)
+
 
