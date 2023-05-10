@@ -7,9 +7,11 @@
 /* Header/Navigation  */
 
 ul {
+  font-size: 25px;
   float: right;
   list-style-type: none;
   margin-top: 25px;
+  padding-left: 20px;
 }
 
 ul li {
@@ -24,7 +26,7 @@ ul li a {
   transition: 0.6s ease;
 }
 
-.no-button {
+.no-button, .save-btn {
   background: none;
   border: none;
   padding: 0;
@@ -32,6 +34,7 @@ ul li a {
   color: #fff;
   text-decoration: none;
   font-size: 100%;
+  
 }
 
 ul li a:hover {
@@ -73,10 +76,26 @@ canvas {
   font-size: 70px;
 }
 
+#ghub {
+  text-align: left;
+  color: #ffffff65;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: sans-serif;
+  padding-bottom: 5px;
+  transition: 0.6s ease;
+}
+
+#ghub:hover{
+  color: #fff;
+}
+
 .upload-input {
   text-align: center;
   color: rgb(168, 168, 168);
-
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 .describe {
@@ -143,6 +162,13 @@ label {
 @media screen and (max-width: 1280px) {
   .title{
     position: static;
+  
+  }
+
+  .title h1{
+    font-size: 70px;
+    width: 45%;
+   
   }
 
   header{
@@ -156,6 +182,12 @@ label {
   canvas {
     max-height: 90%;
     max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .title h1{
+    font-size: 55px;
   }
 }
 
