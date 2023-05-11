@@ -1,16 +1,20 @@
-<ul>
-    <li><a id="home" href="/">HOME</a></li>
-    <li><a id="upload" href="/upload">UPLOAD</a></li>
-    <li><a id="library" href="/library">LIBRARY</a></li>
-    {{#if logged_in}}
-    <button class="no-button" id="logout">LOGOUT</button>
-    {{else}}
-    <li><a id="login" href="/Login">LOGIN</a></li>
-    {{/if}}
-</ul>
-
+<div class="nav-container">
+<nav>
+    <ul>
+        <li><a id="home" href="/">HOME</a></li>
+        <li><a id="upload" href="/upload">UPLOAD</a></li>
+        <li><a id="library" href="/library">LIBRARY</a></li>
+        {{#if logged_in}}
+        <button class="no-button" id="logout">LOGOUT</button>
+        {{else}}
+        <li><a id="login" href="/Login">LOGIN</a></li>
+        {{/if}}
+    </ul>
+</nav>
+</div>
 <style>
     #{{item}}
+
         {
         background-color: #fff;
         color: #000;

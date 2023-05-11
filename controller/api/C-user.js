@@ -23,18 +23,17 @@ router.post('/login', async (req, res) => {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+      console.log("hello")
+      res.statusMessage = "Invalid Credentials";
+      res.status(400).end();
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+      res.statusMessage = "Invalid Credentials";
+      res.status(400).end();
       return;
     }
 

@@ -2,17 +2,25 @@
 
 {{item}} {
     min-height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url({{image}});
     {{#if lib}}
-    height: 90vb;
-    background-position-y: 55%;
+    height: 20vb; 
+    background-color: rgb(59/2, 60/2, 61/2);
     {{else}}
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url({{image}});
     height: 100vb;
     background-position-y: 15%;
-    {{/if}}
-    background-size: cover;
     background-color: rgb(59, 60, 61);
+    {{/if}}
+    background-size: cover; 
 }
-
+ {{#if lib}}
+ .title {
+    position: relative;
+    left: 0%;
+ }
+ .title h1 {
+    font-size: 50px;
+ }
+ {{/if}}
 </style>
 
