@@ -1,19 +1,12 @@
 <body id="the-library">
     <header>
-
-
         {{> nav-partial item="library"}}
-
-
-        <div class="title">
-            <h1>Library</h1>
-        </div>
-
     </header>
+
     <div class="gallery">
         {{#if legos.length}}
         {{#each legos as |lego|}}
-        {{> lego-partial }}
+        {{{renderLegos lego_url}}}
         {{/each}}
         {{/if}}
     </div>

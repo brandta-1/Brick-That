@@ -5,7 +5,6 @@
   text-decoration: none;
   color: #fff;
 }
-
 .title {
   padding-left: 10px;
 }
@@ -27,16 +26,15 @@
 
 /* Header/Navigation  */
 
+
 ul {
   float: right;
   list-style-type: none;
   margin-top: 25px;
 }
-
 ul li {
   display: inline-block;
 }
-
 ul li a {
   text-decoration: none;
   color: #fff;
@@ -64,12 +62,10 @@ ul li a:hover {
   background-color: #fff;
   color: #000;
 }
-
 ul li.active a {
   background-color: #fff;
   color: #000;
 }
-
 .main {
   max-width: 1200px;
   margin: auto;
@@ -78,13 +74,12 @@ ul li.active a {
 #the-library {
   background-color: rgb(31, 31, 31);
 }
-
 canvas {
   display: block;
   margin-left: auto;
   margin-right: auto;
   max-height: 100%;
-
+  
 }
 
 .title h1 {
@@ -93,6 +88,7 @@ canvas {
 }
 
 .upload-input {
+  
   color: rgb(168, 168, 168);
 }
 
@@ -102,18 +98,16 @@ canvas {
   background: black;
 }
 
-.gallery {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+gallery {
+  margin: 0 auto;
 }
 
-.gallery img {
-
+.gallery-img {
+  height: auto;
+  display: block;
   max-width: 100%;
   margin-top: 50px;
 }
-
 /* Style inputs, select elements and textareas */
 input[type=text],
 input[type=password],
@@ -157,7 +151,9 @@ label {
 }
 
 @media screen and (max-width: 1280px) {
-
+  *{
+    font-size: 12px;
+  }
   .save-btn,
   .add-btn {
     background-color: #fff;
@@ -170,8 +166,6 @@ label {
     top: 20%;
     left: 25%
   }
-
-
   header {
     height: auto;
   }
@@ -179,14 +173,11 @@ label {
   .upload-input {
     text-align: left;
   }
-
   canvas {
     max-height: 90%;
     max-width: 90%;
   }
 }
-
-
 
 h3 {
   text-align: center;
