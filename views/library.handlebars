@@ -6,18 +6,17 @@
         </div>
 
         <div class="title">
-            <h1>{{name}}'s Library</h1>
+            <h1>Library</h1>
         </div>
 
     </header>
-
-    {{#if legos.length}}
-    {{#each legos as |lego|}}
-    {{> lego-partial }}
-    {{/each}}
-    {{/if}}
-
+    <div class="gallery">
+        {{#if legos.length}}
+        {{#each legos as |lego|}}
+        {{> lego-partial }}
+        {{/each}}
+        {{/if}}
+    </div>
 </body>
 
-{{>css-partial item="header" image= "/assets/images/gustavKlimt.png"}}
-
+{{>css-partial item="header" lib=1}}

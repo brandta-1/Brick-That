@@ -1,4 +1,4 @@
-<header>
+<header id="page-header">
 
     <div class="main">
         {{> nav-partial item="upload"}}
@@ -7,14 +7,16 @@
     <div class="title">
         <h1>Upload a photo</h1>
         <div class="upload-input">
-            <button class="save-btn" id="1" disabled="true">SAVE</button>
+            <button class="save-btn" id="1" disabled="true">Add to Library</button>
+            <button class="add-btn">Get Download Link</button>
+            <a href="#" download="MyImage.png" id="downloadlink">Save image</a>
             <input class="no-button" id="image_input" type="file" accept="image/jpeg, image/png, image/jpg">
 
         </div>
     </div>
 
     <canvas id="canvas_id"></canvas>
-
+    
 </header>
 
 {{>css-partial item="html" image= "/assets/images/divisionBell.png"}}

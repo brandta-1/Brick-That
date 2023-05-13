@@ -2,6 +2,27 @@
   margin: 0;
   padding: 0;
   font-family: Helvetica;
+  text-decoration: none;
+  color: #fff;
+}
+
+.title {
+  padding-left: 10px;
+}
+
+#ghub {
+  text-align: left;
+  color: #ffffff65;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: sans-serif;
+  padding-bottom: 5px;
+
+}
+
+#downloadlink,
+.add-btn {
+  display: none;
 }
 
 /* Header/Navigation  */
@@ -24,14 +45,19 @@ ul li a {
   transition: 0.6s ease;
 }
 
-.no-button {
+button {
   background: none;
   border: none;
-  padding: 0;
   cursor: pointer;
-  color: #fff;
-  text-decoration: none;
   font-size: 100%;
+  padding: 5px 20px;
+}
+
+button:hover,
+ul li a:hover {
+  transition: 0.6s ease;
+  background-color: #fff;
+  color: #000;
 }
 
 ul li a:hover {
@@ -49,15 +75,8 @@ ul li.active a {
   margin: auto;
 }
 
-#the-library{
+#the-library {
   background-color: rgb(31, 31, 31);
-}
-
-.title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate (-50%, -50%);
 }
 
 canvas {
@@ -65,7 +84,7 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   max-height: 100%;
- 
+
 }
 
 .title h1 {
@@ -74,9 +93,7 @@ canvas {
 }
 
 .upload-input {
-  text-align: center;
   color: rgb(168, 168, 168);
-
 }
 
 .describe {
@@ -87,6 +104,7 @@ canvas {
 
 .gallery {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -99,6 +117,7 @@ canvas {
 /* Style inputs, select elements and textareas */
 input[type=text],
 input[type=password],
+input[type=email],
 select,
 textarea {
   width: 100%;
@@ -107,29 +126,19 @@ textarea {
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
-  background-color: rgb(56, 58, 58);
+  margin-bottom: 15px;
+  background-color: white;
 }
 
-input[type=email],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-  background-color: rgb(56, 58, 58);
+.form-group {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
 }
 
-input[type=tele],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-  background-color: rgb(56, 58, 58);
+.form-input {
+  color: #000
 }
 
 /* Style the label to display next to the inputs */
@@ -140,12 +149,30 @@ label {
   color: rgb(168, 168, 168);
 }
 
+.row {
+  display: flex;
+  position: absolute;
+  top: 20%;
+  right: 20%;
+}
+
 @media screen and (max-width: 1280px) {
-  .title{
-    position: static;
+
+  .save-btn,
+  .add-btn {
+    background-color: #fff;
+    color: #000;
+    margin: 10px;
   }
 
-  header{
+  .row {
+    display: inline;
+    top: 20%;
+    left: 25%
+  }
+
+
+  header {
     height: auto;
   }
 
@@ -159,51 +186,9 @@ label {
   }
 }
 
-.form-group {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 5px;
-  border-radius: 5px;
-}
 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  background-color: white;
-}
-
-input[type="text"]::placeholder,
-input[type="password"]::placeholder {
-  color: #aaa;
-}
-
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button[type="submit"]:hover {
-  background-color: #3E8E41;
-}
 
 h3 {
   text-align: center;
   color: white;
-}
-
-.row {
-  position: absolute;
-  width: 50%;
-  top: 20%;
-  left: 25%
-  
 }
