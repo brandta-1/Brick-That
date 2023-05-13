@@ -30,6 +30,7 @@ async function displayImages() {
 
     let img1 = new Image();
 
+
     img1.src = URL.createObjectURL(input.files[0]);
 
     //TODO implement lazy nearest neighbor or do a difficult proper algo with edge detection
@@ -61,15 +62,27 @@ async function displayImages() {
             }
         }
     }
-    $('.save-btn').attr('disabled', false)
+    $('.save-btn').attr('disabled', false);
+    $('.add-btn').css("display", "inline");
 }
+
+$('.add-btn').on('click', async (event) => {
+    $('.add-btn').css("display", "none");
+    $('#downloadlink').css("display", "inline");
+    const canvas = document.getElementById("canvas_id");
+    const canvasdata = canvas.toDataURL();
+
+    const link = document.getElementById("downloadlink");
+    link.href = canvasdata;
+    link.download = "SomeFileName.png";
+})
 
 $('.save-btn').on('click', async (event) => {
 
     const theCanvas = document.getElementById("canvas_id")
 
-    // 2048*2048 resolution limit
-    if (theCanvas.width * theCanvas.height <= Math.pow(2048, 2)) {
+    // 3024 * 4032 resolution limit
+    if (theCanvas.width * theCanvas.height <= 12192768) {
 
         const lego_url = theCanvas.toDataURL()
 
@@ -83,7 +96,7 @@ $('.save-btn').on('click', async (event) => {
 
         $('.save-btn').attr('disabled', true)
     } else {
-        alert("Images can only be saved if they are 2048x2048 or smaller")
+        alert("Images can only be saved if they are 3024 x 4032 or smaller")
     }
 })
 

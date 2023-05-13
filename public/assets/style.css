@@ -6,24 +6,43 @@
   color: #fff;
 }
 
+.title {
+  padding-left: 10px;
+}
+
+#ghub {
+  text-align: left;
+  color: #ffffff65;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: sans-serif;
+  padding-bottom: 5px;
+
+}
+
+#downloadlink,
+.add-btn {
+  display: none;
+}
+
 /* Header/Navigation  */
 
-nav {
-  font-size: 25px;
+ul {
   float: right;
   list-style-type: none;
   margin-top: 25px;
-  padding-right: 20px;
 }
 
-nav li {
+ul li {
   display: inline-block;
 }
 
-nav li a {
-  display: inline-block;
+ul li a {
+  text-decoration: none;
+  color: #fff;
   padding: 5px 20px;
   border: 1px solid transparent;
+  transition: 0.6s ease;
 }
 
 button {
@@ -34,8 +53,14 @@ button {
   padding: 5px 20px;
 }
 
-button:hover, ul li a:hover {
+button:hover,
+ul li a:hover {
   transition: 0.6s ease;
+  background-color: #fff;
+  color: #000;
+}
+
+ul li a:hover {
   background-color: #fff;
   color: #000;
 }
@@ -45,15 +70,13 @@ ul li.active a {
   color: #000;
 }
 
-#the-library {
-  background-color: rgb(31, 31, 31);
+.main {
+  max-width: 1200px;
+  margin: auto;
 }
 
-.title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate (-50%, -50%);
+#the-library {
+  background-color: rgb(31, 31, 31);
 }
 
 canvas {
@@ -69,27 +92,8 @@ canvas {
   font-size: 70px;
 }
 
-#ghub {
-  text-align: left;
-  color: #ffffff65;
-  text-decoration: none;
-  font-size: 40px;
-  font-family: sans-serif;
-  padding-bottom: 5px;
-
-}
-
-#ghub:hover {
-  color: #fff;
-  transition: 0.6s ease;
-}
-
 .upload-input {
-  text-align: center;
   color: rgb(168, 168, 168);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
 }
 
 .describe {
@@ -100,6 +104,7 @@ canvas {
 
 .gallery {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -110,22 +115,33 @@ canvas {
 }
 
 /* Style inputs, select elements and textareas */
-
-
 input[type=text],
 input[type=password],
+input[type=email],
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #000;
+  padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
   resize: vertical;
-  color: #000;
-
+  margin-bottom: 15px;
+  background-color: white;
 }
 
+.form-group {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.form-input {
+  color: #000
+}
+
+/* Style the label to display next to the inputs */
 label {
   padding: 12px 12px 12px 0;
   display: block;
@@ -136,33 +152,25 @@ label {
 .row {
   display: flex;
   position: absolute;
-  top: 35%;
-  left: 55%
+  top: 20%;
+  right: 20%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1280px) {
 
-  .nav-container{
-    width: 100%;
-    
-  }
-  nav {
-    position: fixed;
-    font-size: 10px;
-    float: none;
-    padding-top: 25px;
-    margin-top: 0;
-    padding-right: 0;
-    margin: auto;
-  }
-  .title {
-    position: static;
+  .save-btn,
+  .add-btn {
+    background-color: #fff;
+    color: #000;
+    margin: 10px;
   }
 
-  .title h1 {
-    font-size: 70px;
-    width: 45%;
+  .row {
+    display: inline;
+    top: 20%;
+    left: 25%
   }
+
 
   header {
     height: auto;
@@ -176,24 +184,9 @@ label {
     max-height: 90%;
     max-width: 90%;
   }
-
-  .title h1 {
-    font-size: 55px;
-  }
-
-  .row {
-    display: inline;
-    top: 20%;
-    left: 25%
-  }
-
 }
 
- .form-group {
- 
-  padding: 5px;
-  border-radius: 5px;
-} 
+
 
 h3 {
   text-align: center;
