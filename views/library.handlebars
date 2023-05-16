@@ -5,8 +5,8 @@
 
     <div class="gallery">
         {{#if legos.length}}
-        {{#each legos as |lego|}}
-        {{{renderLegos lego_url}}}
+        {{#each legos}}
+        {{{renderLegos stored_url}}}
         {{/each}}
         {{/if}}
     </div>

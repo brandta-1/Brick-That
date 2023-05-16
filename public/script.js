@@ -63,6 +63,7 @@ async function displayImages() {
         }
     }
     $('.save-btn').attr('disabled', false);
+    $('.save-btn').css("display", "inline");
     $('.add-btn').css("display", "inline");
 }
 
@@ -93,7 +94,7 @@ $('.save-btn').on('click', async (event) => {
                 'Content-Type': 'application/json',
             }
         })
-
+        $('.save-btn').css("display", "none");
         $('.save-btn').attr('disabled', true)
     } else {
         alert("Images can only be saved if they are 3024 x 4032 or smaller")

@@ -12,7 +12,7 @@ Lego.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        lego_url: {
+        stored_url: {
             type: DataTypes.TEXT('long'),
             allowNull: false
         },
