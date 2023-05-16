@@ -20,7 +20,8 @@
 }
 
 #downloadlink,
-.add-btn {
+.add-btn,
+.save-btn {
   display: none;
 }
 
